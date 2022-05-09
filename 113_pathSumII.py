@@ -44,6 +44,9 @@ class Solution:
             return
         self.cacheList.append(root.val)
         if (root.left is None and root.right is None and self.checkSum(targetSum)):
+            """
+            need to be caution, append list must need to use deepcopy
+            """
             self.returnList.append(copy.deepcopy(self.cacheList))
             # print(self.returnList, self.cacheList)
         if (root.left):
