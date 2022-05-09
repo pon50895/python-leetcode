@@ -1,4 +1,4 @@
-from typing import Optional, List
+from typing import Optional, ListNode
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -44,7 +44,7 @@ class Solution:
 
     def sortedListToBST(self, head: Optional[ListNode]) -> Optional[TreeNode]:
         if head is None:
-            return TreeNode()
+            return None
         self.traversal(head)
         print(self.list)
         return self.dfs(0, len(self.list) - 1)
