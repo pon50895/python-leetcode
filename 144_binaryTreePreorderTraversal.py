@@ -44,4 +44,4 @@ class Solution:
 
 
 solution = Solution()
-print(solution.sumNumbers(TreeNode(4, TreeNode(9, TreeNode(5), TreeNode(1)), TreeNode(0))))
+print(solution.preorderTraversal(TreeNode(4, TreeNode(9, TreeNode(5), TreeNode(1)), TreeNode(0))))
