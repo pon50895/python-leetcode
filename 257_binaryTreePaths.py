@@ -32,33 +32,22 @@ class TreeNode:
 class Solution:
     def __init__(self):
         self.returnList = []
-        self.path = []
 
     def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
-        self.traversal(root)
+        self.traversal(root, "")
         return self.returnList
 
-    def traversal(self, root: Optional[TreeNode]):
+    def traversal(self, root: Optional[TreeNode], path: str):
         if root is None:
             return
 
-        self.path.append(root)
-        self.traversal(root.left)
-        self.traversal(root.right)
-
         if (root.left is None and root.right is None):
-            self.pushPath()
+            self.returnList.append(path + str(root.val))
+            return
 
-        self.path.pop()
-
-    def pushPath(self):
-        pathString = ""
-        for x in self.path:
-            if pathString:
-                pathString += "->" + str(x.val)
-            else:
-                pathString = str(x.val)
-        self.returnList.append(pathString)
+        path += str(root.val) + "->"
+        self.traversal(root.left, path)
+        self.traversal(root.right, path)
 
 
 solution = Solution()
